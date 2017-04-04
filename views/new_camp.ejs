@@ -1,0 +1,34 @@
+<% include partials/header %>
+
+
+	<div class="container text-center">
+		<div class="row">
+			<h1>Create a new campground</h1>
+			<div style="width: 35%; margin: 0 auto; display: block; padding-top: 35px;">
+			<form action="add_camp" method="POST">
+				<div class="form-group">
+					<input type="text" name="camp_name" placeholder="The campground name:" class="form-control" required="required">
+				</div>
+
+				<div class="form-group">
+						<input type="url" name="camp_image" placeholder="The campground image url:" class="form-control" required="required">
+				</div>
+
+				<div class="form-group">
+						<input type="textarea" name="camp_desc" placeholder="The campground Description:" class="form-control" required="required">
+				</div>
+
+				<div class="form-group">
+						<input type="number" name="camp_price" placeholder="The campground night price:" class="form-control" required="required">
+				</div>
+
+				<div class="form-group">
+					<input type="submit" value="Add" class="btn btn-primary btn-block">
+				</div>
+
+			</form>
+			</div>
+		</div>
+	</div>
+
+<% include partials/footer %>

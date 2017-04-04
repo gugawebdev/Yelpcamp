@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CAMPGROUNDS</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/main.css">
+	<link rel="stylesheet" type="text/css" href="assets/landing.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default" style="z-index:666;">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="/" class="navbar-brand">YelpCamp</a>
+		</div>
+
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+
+					<% if(!currentUser){ %>
+
+				<li><a href="/login">Login</a></li>
+				<li><a href="/signup">Sign up</a></li>
+					 <% }else{ %>
+				<li><a href="#">Signed in as: <strong><%= currentUser.username %></strong></a></li>
+				<li><a href="/logout">Logout</a></li>
+
+					<% } %>
+
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container" style="width:435px; position:relative; display:block; margin: 0 auto;">
+	<% if(error && error.length > 0){ %>
+		<div class="alert alert-danger">
+			<p class="text-center"><strong style=""><%=error%></strong></p>
+		</div>
+	<% } %>
+	<% if(success && success.length > 0){ %>
+		<div class="alert alert-success">
+			<p class="text-center"><strong><%=success%></strong></p>
+		</div>
+	<%}%>
+</div>

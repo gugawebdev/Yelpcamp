@@ -1,0 +1,65 @@
+<% include partials/header %>
+
+<div class="container">
+	<div class="row">
+			<div class="col-md-3">
+				<p class="lead">Yelp Camp</p>
+				<div class="list-group">
+					<li class="list-group-item active">Info 1</li>
+
+					<li class="list-group-item">Info 2</li>
+
+					<li class="list-group-item">Info 3</li>
+
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="thumbnail">
+					<img src="<%=campID.photo%>" alt="" class="img-responsive">
+					<div class="caption-full">
+							<h3 class="pull-right">$<%=campID.price%>/night</h3>
+							<h3><a href="#"><%=campID.name%></a></h3>
+							<p ><%=campID.description%></p>
+							<h4 style="padding-top:25px;">Created by: <strong><%= campID.owner %></strong></h4>
+							<% if(currentUser.username === campID.owner){ %>
+									<div class="row" style="padding-left:5px;margin-left:0px;">
+
+														<form  action="<%= campID._id%>/delete?_method=DELETE" method="POST" >
+															<input type="submit" value="Deletar" class="btn btn-danger pull-left">
+															<a href="<%=campID._id%>/edit" class="btn btn-warning" style="margin-left:5px;;">Edit campground</a>
+													</form>
+									</div>
+								<% }else{ %>
+								<%}%>
+								</div>
+				</div>
+
+					<div class="well">
+						<div class="text-right">
+							<a href="/campgrounds/<%=campID._id%>/comments/new" class="btn btn-success">New comment</a>
+							<hr style="background-color:black; width:100%;height:1px;">
+							<% campID.comments.forEach(function(data) { %>
+									<div class="row">										<div class="col-md-12">
+											<span class="pull-left"> <strong><%=data.author%></strong> - 10 days ago</span><br>
+												<p class="pull-left"><%= data.text %></p>
+												<% if(currentUser.username == data.author){ %>
+													<div class="row">
+														<form  action="/<%=data._id%>/delete?_method=DELETE" method="POST">
+															<input type="submit" name="" value="Delete comment" class="btn btn-danger">
+															<a href="/campgrounds/<%=campID._id%>/comments/<%=data._id%>/edit"><p class="btn btn-warning">Update comment</p></a>
+														</form>
+
+													</div>
+												<% } %>
+										</div>
+									</div>
+									<hr style="background-color:black; width:100%;height:1px;">
+							<% }); %>
+			</div>
+	</div>
+</div>
+
+
+
+
+<% include partials/footer %>

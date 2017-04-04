@@ -1,0 +1,14 @@
+<%  include ../partials/header %>
+
+<form class="" action="/campgrounds/<%=data._id%>/comments" method="post" style="width:350px;display:block; margin:0 auto;">
+
+
+  <div class="form-group">
+    <input type="text" name="text" placeholder="Comment:" class="form-control" style="padding:15px;" required="required">
+  </div>
+
+  <input type="submit"  value="Create comment" class="btn btn-success btn-block">
+
+</form>
+
+<% include ../partials/footer %>

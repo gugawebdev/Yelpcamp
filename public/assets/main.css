@@ -1,0 +1,33 @@
+h1{
+	text-align: center;
+}
+
+form{
+	display: block;
+	margin: 0 auto;
+	width: 350px;
+}
+
+div{
+	overflow: none;
+}
+
+.thumbnail img{
+	width:100%;
+}
+
+.thumbnail{
+	padding: 0px;
+	background-color: lightgray
+}
+
+.caption-full{
+	padding: 0px 12px;
+	top: -5px;
+	position: relative;
+}
+
+.pull-right{
+	position: relative;
+	top:-20px;
+}
