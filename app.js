@@ -12,7 +12,7 @@ var app = express();
 
 //*** PASSPORT CONFIGURATION ***
 app.use(require('express-session')({
-	secret: 'Eu virei astroneuta tuntuntuntun',
+	secret: 'Que pasa, hermano?!',
 	resave:false,
 	salveUnitialized: false
 }));
